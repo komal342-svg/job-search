@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Finder</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #2563eb;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+      cursor: pointer;
+    }
+
+    nav button:hover {
+      background-color: #1e40af;
+    }
+
+    section {
+      display: none;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+    }
+
+    /* HOME SECTION */
+    .home-hero {
+      text-align: center;
+    }
+
+    .home-hero img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .features {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-box {
+      background: white;
+      flex: 1 1 300px;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .feature-box img {
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    /* SEARCH SECTION */
+    .job-listings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .job-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .job-card img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    .job-card h3 {
+      color: #1e3a8a;
+      margin-bottom: 0.5rem;
+    }
+
+    .apply-btn {
+      margin-top: 1rem;
+      background-color: #1e3a8a;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* CONTACT */
+    #contact {
+      background-color: #eef2f7;
+      border-radius: 10px;
+      padding-bottom: 5rem;
+    }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    form {
+      flex: 1;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.3rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .submit-btn {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 0.75rem 2rem;
+      border: none;
+      margin-top: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-img {
+      flex: 1;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.5rem;
+    }
+
+    #formMessage {
+      margin-top: 1rem;
+      color: green;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Job Finder</h1>
+    <p>Explore top jobs. Land your dream career.</p>
+  </header>
+
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('search')">Search</button>
+    <button onclick="showPage('contact')">Contact</button>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home" class="active">
+    <div class="home-hero">
+      <h2>Welcome to Job Finder</h2>
+      <p>Discover jobs, connect with employers, and grow your career.</p>
+      <img src="https://img.freepik.com/free-vector/job-hunt-concept-illustration_114360-4265.jpg" alt="Job Hunt">
+    </div>
+
+    <div class="features">
+      <div class="feature-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" alt="Smart Match">
+        <h3>Smart Match</h3>
+        <p>We recommend jobs based on your skills and preferences.</p>
+      </div>
+      <div class="feature-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/2950/2950666.png" alt="Verified Companies">
+        <h3>Trusted Employers</h3>
+        <p>Work with verified companies offering great careers.</p>
+      </div>
+      <div class="feature-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/2936/2936885.png" alt="Career Growth">
+        <h3>Career Tools</h3>
+        <p>Resume tips, interview guides, and expert advice.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section id="search">
+    <h2>Latest Jobs</h2>
+    <div class="job-listings">
+      <div class="job-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Web Developer">
+        <h3>Frontend Developer</h3>
+        <p>React | Remote | $80K - $100K</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" alt="Backend">
+        <h3>Backend Engineer</h3>
+        <p>Node.js, MongoDB | SF Office | $100K+</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="Designer">
+        <h3>UI/UX Designer</h3>
+        <p>Figma, Adobe XD | Hybrid | $75K+</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+      <div class="job-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="Marketing">
+        <h3>Digital Marketer</h3>
+        <p>SEO, PPC, Analytics | Remote</p>
+        <button class="apply-btn">Apply Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+      <form onsubmit="submitForm(event)">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" rows="5" required></textarea>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+        <p id="formMessage"></p>
+      </form>
+
+      <img class="contact-img" src="https://img.freepik.com/free-vector/contact-us-concept-landing-page_52683-12860.jpg" alt="Contact Illustration">
+    </div>
+
+    <div class="contact-info">
+      <h3 style="margin-top: 2rem;">Other Ways to Reach Us</h3>
+      <p>📧 support@jobfinder.com</p>
+      <p>📞 +1 800 123 4567</p>
+      <p>📍 123 Career Lane, Workville, USA</p>
+    </div>
+  </section>
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll("section").forEach(section => {
+        section.classList.remove("active");
+      });
+      document.getElementById(id).classList.add("active");
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      document.getElementById("formMessage").textContent = `Thank you, ${name}! We'll contact you soon.`;
+    }
+  </script>
+
+</body>
+</html>
